@@ -120,24 +120,6 @@ resources:
     memory: 512Mi
 ```
 
-### 5) Custom ports and probes
-By default the container listens on the same port as the `service.port` (80) and liveness/readiness checks hit `/` on the named port `http`.
-
-```yaml
-service:
-  type: ClusterIP
-  port: 80
-
-livenessProbe:
-  httpGet:
-    path: /
-    port: http
-readinessProbe:
-  httpGet:
-    path: /
-    port: http
-```
-
 ### 6) Image settings
 ```yaml
 image:
