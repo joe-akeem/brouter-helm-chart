@@ -139,12 +139,18 @@ volumeMounts:
     mountPath: /data
 ```
 
-### 8) Init containers
+### 8) Init containers / Get Routing Segments
+
+`initContainers` can be used to download the desired segments, for example like so:
+
 ```yaml
 initContainers:
-  init-myservice:
-    image: busybox:1.36
-    command: ["sh", "-c", "echo preparing..."]
+  - name: download-segments
+    image: busybox:latest
+    command: [ 'sh', '-c', 'wget -P /segments4 https://brouter.de/brouter/segments4/E5_N45.rd5' ]
+    volumeMounts:
+      - name: segments4
+        mountPath: /segments4
 ```
 
 ## All configurable values
