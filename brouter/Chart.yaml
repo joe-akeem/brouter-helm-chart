@@ -1,6 +1,6 @@
 apiVersion: v2
 name: brouter
-description: A Helm chart for Brouter (https://github.com/abrensch/brouter)
+description: A Helm chart for BRouter (https://github.com/abrensch/brouter)
 
 type: application
 
