@@ -145,19 +145,17 @@ autoscaling:
 volumes:
   - name: segments4
     emptyDir: { }
-  # - name: foo
-  #   secret:
-  #     secretName: mysecret
-  #     optional: false
+  - name: profiles2
+    emptyDir: { }
 
 # Additional volumeMounts on the output Deployment definition.
 volumeMounts:
   - name: segments4
     mountPath: /segments4
     readOnly: true
-  # - name: foo
-  #   mountPath: "/etc/foo"
-  #   readOnly: true
+  - name: profiles2
+    mountPath: /profiles2
+    readOnly: true
 
 nodeSelector: {}
 
@@ -165,6 +163,8 @@ tolerations: []
 
 affinity: {}
 
+# download rd5 files for your area from https://brouter.de/brouter/segments4/. See https://srtm.csi.cgiar.org/srtmdata/ to determine which ones you need
+# optionally, also more profiles can be downloaded and copied into the /profiles2 folder
 initContainers:
   - name: download-segments
     image: busybox:latest
@@ -172,3 +172,27 @@ initContainers:
     volumeMounts:
       - name: segments4
         mountPath: /segments4
+  - name: download-profiles
+    image: busybox:latest
+    command:
+      - sh
+      - -c
+      - |
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/heads/master/misc/profiles2/car-vario.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/heads/master/misc/profiles2/fastbike-verylowtraffic.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/heads/master/misc/profiles2/lookups.dat
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/heads/master/misc/profiles2/hiking-mountain.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/heads/master/misc/profiles2/mtb.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/heads/master/misc/profiles2/shortest.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/heads/master/misc/profiles2/vm-forum-liegerad-schnell.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/heads/master/misc/profiles2/fastbike.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/heads/master/misc/profiles2/gravel.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/heads/master/misc/profiles2/moped.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/heads/master/misc/profiles2/rail.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/heads/master/misc/profiles2/river.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/heads/master/misc/profiles2/softaccess.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/heads/master/misc/profiles2/trekking.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/heads/master/misc/profiles2/vm-forum-velomobil-schnell.brf
+    volumeMounts:
+      - name: profiles2
+        mountPath: /profiles2
