@@ -172,6 +172,9 @@ initContainers:
   - name: download-segments
     image: busybox:latest
     command: [ 'sh', '-c', 'wget -P /segments4 https://brouter.de/brouter/segments4/E5_N45.rd5' ]
+    resources:
+      requests:
+        ephemeral-storage: 400Mi
     volumeMounts:
       - name: segments4
         mountPath: /segments4
@@ -196,6 +199,9 @@ initContainers:
         wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.9/misc/profiles2/softaccess.brf
         wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.9/misc/profiles2/trekking.brf
         wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.9/misc/profiles2/vm-forum-velomobil-schnell.brf
+    resources:
+      requests:
+        ephemeral-storage: 20Mi
     volumeMounts:
       - name: profiles2
         mountPath: /profiles2

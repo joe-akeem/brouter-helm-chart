@@ -4,7 +4,7 @@ description: A Helm chart for BRouter (https://github.com/abrensch/brouter)
 
 type: application
 
-version: 0.2.3
+version: 0.2.4
 
 # when you bump the appVersion to a newer BRouter release, also update the version for the .brf and .dat downloads in values.yaml
 appVersion: "v1.7.9"
