@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git status:*)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(git branch:*)",
+      "Bash(git show:*)",
+      "Bash(git blame:*)",
+      "Bash(which:*)",
+      "Bash(whoami:*)",
+      "Bash(pwd:*)",
+      "Bash(echo:*)",
+      "Bash(kubectl:*)",
+      "Bash(helm:*)",
+      "mcp__jetbrains__*",
+      "mcp__angular-cli__*",
+      "mcp__chrome-devtools__*",
+      "WebFetch(domain:*)"
+    ],
+    "deny": [
+      "mcp__jetbrains__execute_terminal_command",
+      "mcp__jetbrains__execute_sql_query",
+      "mcp__jetbrains__invoke_ide_action"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "sandbox": {
+    "enabled": true,
+    "filesystem": {
+      "denyRead": ["/"],
+      "allowRead": [
+        ".",
+        "~/.gradle/gradle.properties"
+      ]
+    },
+    "autoAllowBashIfSandboxed": true
+  }
+}
