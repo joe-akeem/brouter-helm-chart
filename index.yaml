@@ -3,6 +3,16 @@ entries:
   brouter:
   - apiVersion: v2
     appVersion: v1.7.9
+    created: "2026-04-21T18:36:14.788107629Z"
+    description: A Helm chart for BRouter (https://github.com/abrensch/brouter)
+    digest: c050abf5c1a3ddbb7d263c03303b701dc246256631a453dca38b22aa039d48c5
+    name: brouter
+    type: application
+    urls:
+    - https://github.com/joe-akeem/brouter-helm-chart/releases/download/brouter-0.2.3/brouter-0.2.3.tgz
+    version: 0.2.3
+  - apiVersion: v2
+    appVersion: v1.7.9
     created: "2026-04-20T19:08:47.20461536Z"
     description: A Helm chart for BRouter (https://github.com/abrensch/brouter)
     digest: 9d743fba7a3b0623d2ac9cee8dc086ecd8bc85b940281543cceb8438c73daa19
@@ -51,4 +61,4 @@ entries:
     urls:
     - https://github.com/joe-akeem/brouter-helm-chart/releases/download/brouter-0.1.1/brouter-0.1.1.tgz
     version: 0.1.1
-generated: "2026-04-20T19:08:47.204635297Z"
+generated: "2026-04-21T18:36:14.788136984Z"
