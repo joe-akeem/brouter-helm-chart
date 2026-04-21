@@ -192,21 +192,21 @@ initContainers:
       - sh
       - -c
       - |
-        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.9/misc/profiles2/lookups.dat
-        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.9/misc/profiles2/car-vario.brf
-        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.9/misc/profiles2/fastbike-verylowtraffic.brf
-        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.9/misc/profiles2/hiking-mountain.brf
-        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.9/misc/profiles2/mtb.brf
-        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.9/misc/profiles2/shortest.brf
-        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.9/misc/profiles2/vm-forum-liegerad-schnell.brf
-        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.9/misc/profiles2/fastbike.brf
-        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.9/misc/profiles2/gravel.brf
-        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.9/misc/profiles2/moped.brf
-        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.9/misc/profiles2/rail.brf
-        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.9/misc/profiles2/river.brf
-        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.9/misc/profiles2/softaccess.brf
-        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.9/misc/profiles2/trekking.brf
-        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.9/misc/profiles2/vm-forum-velomobil-schnell.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.8/misc/profiles2/lookups.dat
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.8/misc/profiles2/car-vario.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.8/misc/profiles2/fastbike-verylowtraffic.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.8/misc/profiles2/hiking-mountain.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.8/misc/profiles2/mtb.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.8/misc/profiles2/shortest.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.8/misc/profiles2/vm-forum-liegerad-schnell.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.8/misc/profiles2/fastbike.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.8/misc/profiles2/gravel.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.8/misc/profiles2/moped.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.8/misc/profiles2/rail.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.8/misc/profiles2/river.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.8/misc/profiles2/softaccess.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.8/misc/profiles2/trekking.brf
+        wget -P /profiles2 https://raw.githubusercontent.com/abrensch/brouter/refs/tags/v1.7.8/misc/profiles2/vm-forum-velomobil-schnell.brf
     resources:
       requests:
         ephemeral-storage: 20Mi
