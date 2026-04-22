@@ -6,6 +6,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A Helm chart for deploying [BRouter](https://github.com/abrensch/brouter) (a bicycle routing engine) to Kubernetes. The chart uses the `joeakeem/brouter` container image and is published via GitHub Pages using [chart-releaser](https://github.com/helm/chart-releaser-action).
 
+## Related projects
+
+This chart is used as a subchart in two sibling projects:
+- [singletrailmap-helm-charts](https://github.com/joe-akeem/singletrailmap-helm-charts) — umbrella chart that composes brouter with tileserver-gl, brouter-web, and planetiler; overrides initContainers and volumes for production use
+- [singletrailmap-gitops](https://github.com/joe-akeem/singletrailmap-gitops) — ArgoCD GitOps repo that deploys the umbrella chart to production with environment-specific values (NFS storage, hostnames, secrets)
+
 ## Common commands
 
 ```bash
