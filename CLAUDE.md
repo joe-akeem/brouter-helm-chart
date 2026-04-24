@@ -43,11 +43,11 @@ The chart lives entirely under `brouter/`. Templates follow standard Helm conven
 
 BRouter has no HTTP health endpoint, so probes use TCP socket checks on port 17777.
 
-The chart ships two init containers that download routing data at pod startup:
-- One downloads an `.rd5` routing segment (default: `E5_N45.rd5`) into the `segments4` volume
-- One downloads routing profiles from the BRouter GitHub repo into the `profiles2` volume
+The chart ships one init container and one ConfigMap for routing data:
+- The `download-segments` init container downloads an `.rd5` routing segment (default: `E5_N45.rd5`) into the `segments4` emptyDir volume at pod startup
+- Routing profiles (`.brf` files + `lookups.dat`) are bundled directly in the chart under `brouter/profiles2/` and shipped as a ConfigMap mounted read-only at `/profiles2`; no network access is needed for profiles at pod startup
 
-Both volumes are `emptyDir`, so data is re-downloaded on every pod restart. The list of profiles and segment URL are configurable in `values.yaml` under `initContainers`.
+The segment URL is configurable in `values.yaml` under `initContainers`. Profile files are versioned with the chart in `brouter/profiles2/`.
 
 ### Networking
 

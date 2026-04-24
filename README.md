@@ -139,19 +139,30 @@ volumeMounts:
     mountPath: /data
 ```
 
-### 8) Init containers / Get Routing Segments
+### 8) Routing profiles (ConfigMap)
 
-`initContainers` can be used to download the desired segments, for example like so:
+The chart bundles the standard BRouter routing profiles (`.brf` files and `lookups.dat`) directly from the upstream release. They are stored in `brouter/profiles2/` and shipped as a Kubernetes ConfigMap named `<release>-profiles2`, which is mounted read-only at `/profiles2` inside the container. No network access is required at pod startup for profiles.
+
+To add or replace profiles, place your `.brf` files in a local copy of `brouter/profiles2/` and reinstall/upgrade the chart from that directory. The ConfigMap is rebuilt automatically from all files in that folder.
+
+### 9) Routing segments (init container)
+
+Routing segment files (`.rd5`) are binary and too large for a ConfigMap, so they are still downloaded by an init container at pod startup. Override `initContainers` in your values to fetch the segment(s) covering your area:
 
 ```yaml
 initContainers:
   - name: download-segments
     image: busybox:latest
     command: [ 'sh', '-c', 'wget -P /segments4 https://brouter.de/brouter/segments4/E5_N45.rd5' ]
+    resources:
+      requests:
+        ephemeral-storage: 400Mi
     volumeMounts:
       - name: segments4
         mountPath: /segments4
 ```
+
+Download URLs for other regions are listed at `https://brouter.de/brouter/segments4/`. Use `https://srtm.csi.cgiar.org/srtmdata/` to find the tile(s) covering your area.
 
 ## All configurable values
 The chart supports the following top-level values (see `brouter/values.yaml` for the full list and inline docs):
