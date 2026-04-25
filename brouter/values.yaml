@@ -157,6 +157,9 @@ volumes:
   - name: segments4
     emptyDir: { }
 
+profiles2:
+  existingConfigMap: ""
+
 # Additional volumeMounts on the output Deployment definition.
 volumeMounts:
   - name: segments4
