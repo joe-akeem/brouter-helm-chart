@@ -156,6 +156,8 @@ autoscaling:
 volumes:
   - name: segments4
     emptyDir: { }
+  - name: customprofiles
+    emptyDir: { }
 
 profiles2:
   existingConfigMap: ""
@@ -168,6 +170,8 @@ volumeMounts:
   - name: profiles2
     mountPath: /profiles2
     readOnly: true
+  - name: customprofiles
+    mountPath: /profiles2/customprofiles
 
 nodeSelector: {}
 
